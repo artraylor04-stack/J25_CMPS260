@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    // =======================
+    // Minute values (activities)
+    // =======================
+    int sleep = 420;        // 7 hours
+    int classes = 210;      // 3.5 hours
+    int homework = 160;     // 2 hours 40 min
+    int meals = 110;        // 1 hour 50 min
+    int gym = 75;           // 1 hour 15 min
+    int fun = 200;          // 3 hours 20 min
+    int commuting = 50;     // 50 min
+    int other = 180;        // 3 hours
+
+    // Total minutes in a day
+    int total_day = 1440;
+
+    // =======================
+    // Calculations
+    // =======================
+    int productive = classes + homework + gym;
+    int leisure = fun + meals;
+    int used_time = sleep + classes + homework + meals + gym + fun + commuting + other;
+    int remaining = total_day - used_time;
+
+    // Percentage of productive time
+    double percent = (productive / 1440.0) * 100;
+
+    // =======================
+    // Conversions to hours/minutes
+    // =======================
+    int sleep_h = sleep / 60;        int sleep_m = sleep % 60;
+    int class_h = classes / 60;      int class_m = classes % 60;
+    int hw_h = homework / 60;        int hw_m = homework % 60;
+    int meals_h = meals / 60;        int meals_m = meals % 60;
+    int gym_h = gym / 60;            int gym_m = gym % 60;
+    int fun_h = fun / 60;            int fun_m = fun % 60;
+    int commute_h = commuting / 60;  int commute_m = commuting % 60;
+    int other_h = other / 60;        int other_m = other % 60;
+
+    int prod_h = productive / 60;    int prod_m = productive % 60;
+    int leis_h = leisure / 60;       int leis_m = leisure % 60;
+    int rem_h = remaining / 60;      int rem_m = remaining % 60;
+    int used_h = used_time / 60;     int used_m = used_time % 60;
+
+    // =======================
+    // Output
+    // =======================
+    cout << "================ MY PRODUCTIVE DAY SIMULATION ================\n";
+    cout << "Activity Breakdown:\n";
+    cout << "Sleep:\t\t" << sleep_h << " hrs " << sleep_m << " min\n";
+    cout << "Class:\t\t" << class_h << " hrs " << class_m << " min\n";
+    cout << "Homework:\t" << hw_h << " hrs " << hw_m << " min\n";
+    cout << "Meals:\t\t" << meals_h << " hrs " << meals_m << " min\n";
+    cout << "Gym:\t\t" << gym_h << " hrs " << gym_m << " min\n";
+    cout << "Fun Time:\t" << fun_h << " hrs " << fun_m << " min\n";
+    cout << "Commuting:\t" << commute_h << " hrs " << commute_m << " min\n";
+    cout << "Other:\t\t" << other_h << " hrs " << other_m << " min\n";
+
+    cout << "--------------------------------------------------------------\n";
+
+    cout << "Total Time Used:\t" << used_h << " hrs " << used_m << " min\n";
+    cout << "Productive Time:\t" << prod_h << " hrs " << prod_m << " min\n";
+    cout << "Leisure Time:\t\t" << leis_h << " hrs " << leis_m << " min\n";
+    cout << "Remaining/Other Time:\t" << rem_h << " hrs " << rem_m << " min\n";
+
+    cout << "You used **" << percent << "%** of your day productively!\n";
+    cout << "Keep pushing — every minute counts.\n";
+    cout << "==============================================================\n";
+
+    return 0;
+}
