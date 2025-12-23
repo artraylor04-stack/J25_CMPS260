@@ -1,0 +1,292 @@
+Problem 1: Tech Store Purchase Invoice
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+int main() {
+
+    // Welcome message
+    cout << "****** Welcome to the Tech Store Purchase Invoice Generator ******" << endl;
+
+    string item1, item2, accessory;
+    double price1, price2, priceA;
+
+    // Tech Item #1
+    cout << "Enter name of Tech Item #1: ";
+    getline(cin, item1);
+
+    cout << "Enter price: ";
+    cin >> price1;
+    cin.ignore(); // Clear newline
+
+    // Tech Item #2
+    cout << "Enter name of Tech Item #2: ";
+    getline(cin, item2);
+
+    cout << "Enter price: ";
+    cin >> price2;
+    cin.ignore();
+
+    // Accessory
+    cout << "Enter name of Accessory: ";
+    getline(cin, accessory);
+
+    cout << "Enter price: ";
+    cin >> priceA;
+
+    double subtotal = price1 + price2 + priceA;     // Sum of all prices
+    double tax = subtotal * 0.095;                  // 9.5% sales tax
+    double total = subtotal + tax;                  // Final total
+
+    cout << fixed << setprecision(2);
+
+    cout << "=========== TECH STORE INVOICE ===========" << endl;
+    cout << item1 << " $" << price1 << endl;
+    cout << item2 << " $" << price2 << endl;
+    cout << accessory << " $" << priceA << endl;
+    cout << "------------------------------------------" << endl;
+    cout << "Subtotal: $" << subtotal << endl;
+    cout << "Sales Tax (9.5%): $" << tax << endl;
+    cout << "Total: $" << total << endl;
+    cout << "==========================================" << endl;
+    cout << "Thank you for shopping with us!" << endl;
+
+    return 0;
+}
+
+
+
+PROBLEM 2 — Photography Trip Planner
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+
+    cout << "****** Welcome to the Photography Trip Planner ******" << endl;
+
+    double A, B, C, mpg, gasPrice, weight;
+
+    cout << "Miles to Location A: ";
+    cin >> A;
+
+    cout << "Miles to Location B: ";
+    cin >> B;
+
+    cout << "Miles to Location C: ";
+    cin >> C;
+
+    cout << "Fuel efficiency (MPG): ";
+    cin >> mpg;
+
+    cout << "Gas price per gallon: ";
+    cin >> gasPrice;
+
+    cout << "Camera gear weight (lbs): ";
+    cin >> weight;
+
+    double totalMiles = A + B + C;
+    double fuelCost = (totalMiles / mpg) * gasPrice;
+    double weightFee = weight * 0.15 * totalMiles;
+    double totalCost = fuelCost + weightFee;
+
+    cout << fixed << setprecision(2);
+
+    cout << "=========== PHOTOGRAPHY TRIP PLANNER ===========" << endl;
+    cout << "Total Distance: " << totalMiles << " miles" << endl;
+    cout << "Fuel Efficiency: " << mpg << " MPG" << endl;
+    cout << "Gas Price: $" << gasPrice << endl;
+    cout << "Camera Gear Weight: " << weight << " lbs" << endl;
+    cout << "-----------------------------------------------" << endl;
+    cout << "Estimated Fuel Cost: $" << fuelCost << endl;
+    cout << "Weight Fee Estimate: $" << weightFee << endl;
+    cout << "-----------------------------------------------" << endl;
+    cout << "Estimated Total Cost: $" << totalCost << endl;
+    cout << "===============================================" << endl;
+    cout << "Shoot smart. Travel safe!" << endl;
+
+    return 0;
+}
+
+
+PROBLEM 3 — Freelance Invoice Generator
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+
+    cout << "****** Welcome to the Freelance Invoice Generator ******" << endl;
+
+    string c1, c2, c3;
+    double h1, h2, h3, r1, r2, r3;
+
+    cout << "Client 1 Name: ";
+    cin >> c1;
+    cout << "Hours Worked: ";
+    cin >> h1;
+    cout << "Hourly Rate: ";
+    cin >> r1;
+
+    cout << "Client 2 Name: ";
+    cin >> c2;
+    cout << "Hours Worked: ";
+    cin >> h2;
+    cout << "Hourly Rate: ";
+    cin >> r2;
+
+    cout << "Client 3 Name: ";
+    cin >> c3;
+    cout << "Hours Worked: ";
+    cin >> h3;
+    cout << "Hourly Rate: ";
+    cin >> r3;
+
+    double e1 = h1 * r1;
+    double e2 = h2 * r2;
+    double e3 = h3 * r3;
+    double total = e1 + e2 + e3;
+
+    cout << fixed << setprecision(2);
+
+    cout << "============== FREELANCER INVOICE ==============" << endl;
+    cout << c1 << " " << h1 << " hrs @ $" << r1 << "/hr = $" << e1 << endl;
+    cout << c2 << " " << h2 << " hrs @ $" << r2 << "/hr = $" << e2 << endl;
+    cout << c3 << " " << h3 << " hrs @ $" << r3 << "/hr = $" << e3 << endl;
+    cout << "------------------------------------------------" << endl;
+    cout << "Total Income: = $" << total << endl;
+    cout << "===============================================" << endl;
+    cout << "Keep hustling!" << endl;
+
+    return 0;
+}
+
+
+
+PROBLEM 4 — Guest Profile Sheet
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+    cout << "****** Welcome to the Guest Profile Generator ******" << endl;
+
+    string full, pref, email, phone, location, occupation, company, hobby, color, quote;
+
+    cin.ignore();
+
+    cout << "Enter your full name: ";
+    getline(cin, full);
+
+    cout << "Enter your preferred name: ";
+    getline(cin, pref);
+
+    cout << "Enter your email address: ";
+    getline(cin, email);
+
+    cout << "Enter your phone number: ";
+    getline(cin, phone);
+
+    cout << "Enter your city and state: ";
+    getline(cin, location);
+
+    cout << "Enter your occupation: ";
+    getline(cin, occupation);
+
+    cout << "Enter your company or school: ";
+    getline(cin, company);
+
+    cout << "Enter your favorite hobby: ";
+    getline(cin, hobby);
+
+    cout << "Enter your favorite color: ";
+    getline(cin, color);
+
+    cout << "Enter a short quote or motto: ";
+    getline(cin, quote);
+
+    cout << "=========== GUEST PROFILE SHEET ===========" << endl;
+    cout << "Name: " << full << endl;
+    cout << "Preferred Name: " << pref << endl;
+    cout << "Email: " << email << endl;
+    cout << "Phone: " << phone << endl;
+    cout << "Location: " << location << endl;
+    cout << "Occupation: " << occupation << endl;
+    cout << "Company/School: " << company << endl;
+    cout << "Hobby: " << hobby << endl;
+    cout << "Favorite Color: " << color << endl;
+    cout << "Quote:\n" << quote << endl;
+    cout << "===========================================" << endl;
+    cout << "Thank you for sharing your profile!" << endl;
+
+    return 0;
+}
+
+
+
+PROBLEM 5 — Movie Ticket Booking Confirmation
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+int main() {
+
+    cout << "****** Welcome to Cinemagic Booking System ******" << endl;
+
+    string name, title, showtime, seat, location;
+    int theater, tickets;
+    double price;
+
+    cout << "Enter customer name: ";
+    getline(cin, name);
+
+    cout << "Enter movie title: ";
+    getline(cin, title);
+
+    cout << "Enter showtime: ";
+    getline(cin, showtime);
+
+    cout << "Enter theater number: ";
+    cin >> theater;
+
+    cout << "Enter seat number: ";
+    cin >> seat;
+
+    cout << "Enter number of tickets: ";
+    cin >> tickets;
+
+    cout << "Enter ticket price per person: ";
+    cin >> price;
+
+    cin.ignore();
+    cout << "Enter theater location: ";
+    getline(cin, location);
+
+    double total = price * tickets;
+
+    cout << fixed << setprecision(2);
+
+    cout << "========== CINEMAGIC TICKET CONFIRMATION ==========" << endl;
+    cout << "Customer: " << name << endl;
+    cout << "Movie: " << title << endl;
+    cout << "Showtime: " << showtime << endl;
+    cout << "Theater: " << theater << endl;
+    cout << "Seat: " << seat << endl;
+    cout << "Location: " << location << endl;
+    cout << "Tickets: " << tickets << endl;
+    cout << "Price per Ticket:$" << price << endl;
+    cout << "--------------------------------------------" << endl;
+    cout << "Total: $" << total << endl;
+    cout << "====================================================" << endl;
+    cout << "Enjoy the show!" << endl;
+
+    return 0;
+}
