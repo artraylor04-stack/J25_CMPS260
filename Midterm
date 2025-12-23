@@ -1,0 +1,191 @@
+Problem 1: Tech Store Discount Calculator
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+
+    cout << "****** Welcome to the Tech Store Invoice Calculator ******" << endl;
+
+    // User inputs
+    string name;
+    int quantity;
+    double price;
+    char member;
+
+    cout << "Enter customer name: ";
+    cin >> name;
+
+    cout << "Enter number of items: ";
+    cin >> quantity;
+
+    cout << "Enter price per item: ";
+    cin >> price;
+
+    cout << "Are you a store member (Y/N)? ";
+    cin >> member;
+
+    // Calculations
+    double subtotal = quantity * price;
+
+    double discount = 0.0;
+
+    if (subtotal > 500)
+        discount = 0.10 * subtotal;
+    else if (subtotal > 300)
+        discount = 0.05 * subtotal;
+
+    // Membership discount
+    double memberDiscount = 0.0;
+    if (member == 'Y' || member == 'y')
+        memberDiscount = 0.05 * (subtotal - discount);
+
+    double finalTotal = subtotal - discount - memberDiscount;
+
+    // Formatting
+    cout << fixed << setprecision(2) << showpoint;
+
+    cout << "============== PURCHASE INVOICE ==============" << endl;
+    cout << "Customer Name: " << name << endl;
+    cout << "Items Purchased: " << quantity << endl;
+    cout << "Price per Item: $" << price << endl;
+    cout << "Subtotal: $" << subtotal << endl;
+
+    cout << "Discount Applied: " 
+         << (discount > 0 ? (discount == 0.10 * subtotal ? "10%" : "5%") : "0%") 
+         << endl;
+
+    cout << "Membership Discount: " 
+         << ((member == 'Y' || member == 'y') ? "5%" : "0%") 
+         << endl;
+
+    cout << "---------------------------------------------" << endl;
+    cout << "Final Total: $" << finalTotal << endl;
+    cout << "=============================================" << endl;
+    cout << "Thank you for shopping with us!" << endl;
+
+    return 0;
+}
+
+
+Problem 2: College Admission Eligibility Checker
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+
+    cout << "****** Welcome to the College Admission Checker ******" << endl;
+
+    // Inputs
+    string name;
+    double gpa;
+    int sat;
+    char extra;
+
+    cout << "Enter student name: ";
+    cin >> name;
+
+    cout << "Enter GPA (0.0 - 4.0): ";
+    cin >> gpa;
+
+    cout << "Enter SAT score (out of 1600): ";
+    cin >> sat;
+
+    cout << "Participated in extracurriculars? (Y/N): ";
+    cin >> extra;
+
+    // Decision logic
+    bool accepted = false;
+
+    if (gpa >= 3.5 && sat >= 1200)
+        accepted = true;
+    else if (gpa >= 3.0 && sat >= 1000 && (extra == 'Y' || extra == 'y'))
+        accepted = true;
+
+    // Output
+    cout << fixed << setprecision(2);
+
+    cout << "============== ADMISSION RESULT ==============" << endl;
+    cout << "Student Name: " << name << endl;
+    cout << "GPA: " << gpa << endl;
+    cout << "SAT Score: " << sat << endl;
+    cout << "Extracurriculars: " << ((extra == 'Y' || extra == 'y') ? "Yes" : "No") << endl;
+    cout << "---------------------------------------------" << endl;
+
+    cout << "Admission Decision: " << (accepted ? "ACCEPTED" : "NOT ELIGIBLE") << endl;
+
+    if (accepted)
+        cout << "Reason: Qualified based on GPA, SAT, and/or extracurriculars" << endl;
+    else
+        cout << "Reason: Did not meet GPA/SAT requirements" << endl;
+
+    cout << "=============================================" << endl;
+    cout << "Congratulations and best wishes!" << endl;
+
+    return 0;
+}
+
+
+Problem 3: Grade Analyzer & Final Letter Grade
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+
+    cout << "****** Welcome to the Grade Analyzer ******" << endl;
+
+    // Inputs
+    string name;
+    double s1, s2, s3;
+
+    cout << "Enter student name: ";
+    cin >> name;
+
+    cout << "Enter score for Assignment 1: ";
+    cin >> s1;
+
+    cout << "Enter score for Assignment 2: ";
+    cin >> s2;
+
+    cout << "Enter score for Assignment 3: ";
+    cin >> s3;
+
+    // Average
+    double avg = (s1 + s2 + s3) / 3.0;
+
+    // Letter grade
+    string grade;
+
+    if (avg >= 97) grade = "A+";
+    else if (avg >= 93) grade = "A";
+    else if (avg >= 90) grade = "A-";
+    else if (avg >= 87) grade = "B+";
+    else if (avg >= 83) grade = "B";
+    else if (avg >= 80) grade = "B-";
+    else if (avg >= 77) grade = "C+";
+    else if (avg >= 73) grade = "C";
+    else if (avg >= 70) grade = "C-";
+    else if (avg >= 60) grade = "D";
+    else grade = "F";
+
+    // Output
+    cout << fixed << setprecision(2) << showpoint;
+
+    cout << "============== GRADE REPORT ==============" << endl;
+    cout << "Student Name: " << name << endl;
+    cout << "Assignment 1: " << s1 << endl;
+    cout << "Assignment 2: " << s2 << endl;
+    cout << "Assignment 3: " << s3 << endl;
+    cout << "------------------------------------------" << endl;
+    cout << "Final Average: " << avg << endl;
+    cout << "Final Letter Grade: " << grade << endl;
+    cout << "==========================================" << endl;
+    cout << "Keep up the great work!" << endl;
+
+    return 0;
+}
