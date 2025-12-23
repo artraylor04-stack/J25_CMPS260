@@ -1,0 +1,158 @@
+PROBLEM 1 — Car Rental Cost Estimator
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+
+    // Welcome message
+    cout << "****** Welcome to the Car Rental Cost Estimator ******" << endl;
+
+    int rentalDays;
+    double dailyRate, insurancePerDay;
+    int milesDriven, mileageAllowance;
+    double overMileageCharge;
+
+    // Collect user input
+    cout << "Enter number of rental days: ";
+    cin >> rentalDays;
+
+    cout << "Enter daily rental rate ($): ";
+    cin >> dailyRate;
+
+    cout << "Enter insurance per day ($): ";
+    cin >> insurancePerDay;
+
+    cout << "Enter total miles driven: ";
+    cin >> milesDriven;
+
+    cout << "Enter mileage allowance per day: ";
+    cin >> mileageAllowance;
+
+    cout << "Enter over-mileage charge per mile ($): ";
+    cin >> overMileageCharge;
+
+    double baseCost = rentalDays * dailyRate;
+    double insuranceCost = rentalDays * insurancePerDay;
+    int mileageLimit = rentalDays * mileageAllowance;
+
+    int excessMiles = milesDriven - mileageLimit;
+    if (excessMiles < 0) {
+        excessMiles = 0; // No overage if under limit
+    }
+
+    double overageFee = excessMiles * overMileageCharge;
+    double totalCost = baseCost + insuranceCost + overageFee;
+
+    // Formatting for currency
+    cout << fixed << setprecision(2) << showpoint;
+
+    cout << "============ CAR RENTAL INVOICE ===========" << endl;
+    cout << "Rental Days: " << rentalDays << endl;
+    cout << "Daily Rate: $" << dailyRate << endl;
+    cout << "Insurance per Day: $" << insurancePerDay << endl;
+    cout << "--------------------------------------------" << endl;
+
+    cout << setw(25) << setfill('.') << left << "Base Cost:" 
+         << "$" << baseCost << endl;
+
+    cout << setw(25) << setfill('.') << left << "Insurance Cost:" 
+         << "$" << insuranceCost << endl;
+
+    cout << "Mileage Limit: " << mileageLimit << " miles" << endl;
+    cout << "Miles Driven: " << milesDriven << " miles" << endl;
+    cout << "Excess Miles: " << excessMiles << " miles" << endl;
+
+    cout << setw(25) << setfill('.') << left << "Overage Fee:" 
+         << "$" << overageFee << endl;
+
+    cout << "--------------------------------------------" << endl;
+
+    cout << setw(25) << setfill('.') << left << "Total Cost:" 
+         << "$" << totalCost << endl;
+
+    cout << "============================================" << endl;
+    cout << "Thank you for choosing our rental service!" << endl;
+
+    return 0;
+}
+
+
+
+PROBLEM 2 — Monthly Budget & Savings Planner
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+
+    // Welcome message
+    cout << "****** Welcome to the Monthly Budget & Savings Planner ******" << endl;
+
+    double income, rent, utilities, groceries, transportation;
+    double savingsPercent;
+
+    // Collect user input
+    cout << "Enter your monthly income ($): ";
+    cin >> income;
+
+    cout << "Enter your rent or mortgage cost ($): ";
+    cin >> rent;
+
+    cout << "Enter your utilities cost ($): ";
+    cin >> utilities;
+
+    cout << "Enter your groceries cost ($): ";
+    cin >> groceries;
+
+    cout << "Enter your transportation cost ($): ";
+    cin >> transportation;
+
+    cout << "Enter your desired savings goal (% of income): ";
+    cin >> savingsPercent;
+
+    double totalExpenses = rent + utilities + groceries + transportation;
+    double savingsGoal = (savingsPercent / 100.0) * income;
+    double remainingBalance = income - totalExpenses - savingsGoal;
+
+    // Formatting for currency
+    cout << fixed << setprecision(2) << showpoint;
+
+    cout << "============== MONTHLY BUDGET REPORT ==============" << endl;
+
+    cout << setw(30) << setfill('.') << left << "Monthly Income:" 
+         << "$" << income << endl;
+
+    cout << "----------------------------------------------------" << endl;
+
+    cout << setw(30) << setfill('.') << left << "Rent / Mortgage:" 
+         << "$" << rent << endl;
+
+    cout << setw(30) << setfill('.') << left << "Utilities:" 
+         << "$" << utilities << endl;
+
+    cout << setw(30) << setfill('.') << left << "Groceries:" 
+         << "$" << groceries << endl;
+
+    cout << setw(30) << setfill('.') << left << "Transportation:" 
+         << "$" << transportation << endl;
+
+    cout << "----------------------------------------------------" << endl;
+
+    cout << setw(30) << setfill('.') << left << "Total Expenses:" 
+         << "$" << totalExpenses << endl;
+
+    cout << setw(30) << setfill('.') << left 
+         << ("Savings Goal (" + to_string((int)savingsPercent) + "%):") 
+         << "$" << savingsGoal << endl;
+
+    cout << setw(30) << setfill('.') << left << "Remaining Balance:" 
+         << "$" << remainingBalance << endl;
+
+    cout << "====================================================" << endl;
+    cout << "Smart planning leads to financial freedom!" << endl;
+
+    return 0;
+}
