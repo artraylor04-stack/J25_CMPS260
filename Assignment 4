@@ -1,0 +1,219 @@
+PROBLEM 1 — BMI CALCULATOR
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+int main() {
+
+    // Welcome message
+    cout << "****** Welcome to the BMI Calculator ******" << endl;
+
+    string name, gender;
+    int age, feet, inches;
+    double weight;
+
+    // Collect user input
+    cout << "Please enter your name: ";
+    getline(cin, name);
+
+    cout << "Please enter your age: ";
+    cin >> age;
+
+    cout << "Please enter your gender (male/female): ";
+    cin >> gender;
+
+    cout << "Please enter your height in feet: ";
+    cin >> feet;
+
+    cout << "Please enter your height in inches: ";
+    cin >> inches;
+
+    cout << "Please enter your weight in pounds: ";
+    cin >> weight;
+
+    int totalInches = (feet * 12) + inches;
+
+    double bmi = (703 * weight) / (totalInches * totalInches);
+
+    string meaning;
+
+    if (bmi < 18.5)
+        meaning = "Underweight";
+    else if (bmi < 25)
+        meaning = "Normal weight";
+    else if (bmi < 30)
+        meaning = "Overweight";
+    else
+        meaning = "Obese";
+
+    cout << fixed << setprecision(2);
+
+    cout << "\nHi " << name << "," << endl;
+    cout << "You are a " << gender << ". You are " << age << " years old." << endl;
+    cout << "You are currently " << feet << "'" << inches 
+         << "\" and you currently weigh " << weight << " pounds." << endl;
+    cout << "Your BMI is " << bmi << ", which is " << meaning << "." << endl;
+
+    cout << "Thank you for using the BMI Calculator!" << endl;
+
+    return 0;
+}
+
+
+
+PROBLEM 2 — Birthday Date Meaning Generator
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+    cout << "Welcome to Birthday Date Meaning Generator!" << endl;
+
+    int month, day, year;
+    char again = 'Y';
+
+    while (again == 'Y' || again == 'y') {
+
+        cout << "Please enter the month of your birthday: ";
+        cin >> month;
+
+        cout << "Please enter the day of your birthday: ";
+        cin >> day;
+
+        cout << "Please enter the year of your birthday (2000-2023): ";
+        cin >> year;
+
+        string monthMeaning;
+
+        switch (month) {
+            case 1: monthMeaning = "Janus"; break;
+            case 2: monthMeaning = "Purification"; break;
+            case 3: monthMeaning = "Mars"; break;
+            case 4: monthMeaning = "Aphrodite"; break;
+            case 5: monthMeaning = "Maia"; break;
+            case 6: monthMeaning = "Juno"; break;
+            case 7: monthMeaning = "Julius Caesar"; break;
+            case 8: monthMeaning = "Augustus"; break;
+            case 9: monthMeaning = "Seven"; break;
+            case 10: monthMeaning = "Eight"; break;
+            case 11: monthMeaning = "Nine"; break;
+            case 12: monthMeaning = "Ten"; break;
+            default: monthMeaning = "Unknown"; break;
+        }
+
+        string dayMeaning = "Unique Personality";
+
+        string yearMeaning;
+
+        switch (year) {
+            case 2000: yearMeaning = "You are a Millennial"; break;
+            case 2001: yearMeaning = "You are ambitious"; break;
+            case 2002: yearMeaning = "You are creative"; break;
+            case 2003: yearMeaning = "You are intuitive"; break;
+            case 2004: yearMeaning = "You are strong-willed"; break;
+            case 2005: yearMeaning = "You are expressive"; break;
+            case 2006: yearMeaning = "You are thoughtful"; break;
+            case 2007: yearMeaning = "You are energetic"; break;
+            case 2008: yearMeaning = "You are resilient"; break;
+            case 2009: yearMeaning = "You are imaginative"; break;
+            case 2010: yearMeaning = "You are bold"; break;
+            case 2011: yearMeaning = "You are optimistic"; break;
+            case 2012: yearMeaning = "You are confident"; break;
+            case 2013: yearMeaning = "You are determined"; break;
+            case 2014: yearMeaning = "You are compassionate"; break;
+            case 2015: yearMeaning = "You are analytical"; break;
+            case 2016: yearMeaning = "You are adaptable"; break;
+            case 2017: yearMeaning = "You are curious"; break;
+            case 2018: yearMeaning = "You are innovative"; break;
+            case 2019: yearMeaning = "You are expressive"; break;
+            case 2020: yearMeaning = "You are a pandemic baby"; break;
+            case 2021: yearMeaning = "You are resilient"; break;
+            case 2022: yearMeaning = "You are hopeful"; break;
+            case 2023: yearMeaning = "You are future-focused"; break;
+            default: yearMeaning = "Unknown"; break;
+        }
+
+        cout << "The month of " << month << " means " << monthMeaning << endl;
+        cout << "The " << day << "th of the month means " << dayMeaning << endl;
+        cout << "The year of " << year << " means " << yearMeaning << endl;
+
+        cout << "Would you like to try another one? (Y/N): ";
+        cin >> again;
+    }
+
+    cout << "Thanks for playing!" << endl;
+
+    return 0;
+}
+
+
+
+PROBLEM 3 — Basic Math Calculator
+
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+
+int main() {
+
+    cout << "****** Welcome to the Basic Math Calculator ******" << endl;
+
+    string op;
+    double a, b;
+
+    cout << "Enter an operation (e.g., +, -, *, /, sin, sqrt, max): ";
+    cin >> op;
+
+    // Unary operations
+    if (op == "sin" || op == "cos" || op == "tan" ||
+        op == "asin" || op == "acos" || op == "atan" ||
+        op == "sqrt" || op == "ceil" || op == "floor" ||
+        op == "abs" || op == "log" || op == "log10" ||
+        op == "log2" || op == "round") {
+
+        cout << "Enter a number: ";
+        cin >> a;
+
+        if (op == "sin") cout << sin(a);
+        else if (op == "cos") cout << cos(a);
+        else if (op == "tan") cout << tan(a);
+        else if (op == "asin") cout << asin(a);
+        else if (op == "acos") cout << acos(a);
+        else if (op == "atan") cout << atan(a);
+        else if (op == "sqrt") cout << sqrt(a);
+        else if (op == "ceil") cout << ceil(a);
+        else if (op == "floor") cout << floor(a);
+        else if (op == "abs") cout << abs(a);
+        else if (op == "log") cout << log(a);
+        else if (op == "log10") cout << log10(a);
+        else if (op == "log2") cout << log2(a);
+        else if (op == "round") cout << round(a);
+
+    } else {
+        // Binary operations
+        cout << "Enter first number: ";
+        cin >> a;
+
+        cout << "Enter second number: ";
+        cin >> b;
+
+        if (op == "+") cout << a + b;
+        else if (op == "-") cout << a - b;
+        else if (op == "*") cout << a * b;
+        else if (op == "/") cout << a / b;
+        else if (op == "%") cout << fmod(a, b);
+        else if (op == "^") cout << pow(a, b);
+        else if (op == "max") cout << max(a, b);
+        else if (op == "min") cout << min(a, b);
+        else if (op == "atan2") cout << atan2(a, b);
+        else cout << "Invalid operation.";
+    }
+
+    cout << endl;
+    return 0;
+}
