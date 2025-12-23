@@ -1,0 +1,93 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() {
+
+    // Seed random number generator
+    srand(time(0));
+
+    // Welcome message
+    cout << "****** Welcome to COMPANION QUEST ******" << endl;
+    cout << "A simple console game designed to reduce boredom and keep you company!" << endl;
+    cout << "-------------------------------------------------------------" << endl;
+
+    string name;
+    cout << "Before we begin, what's your name? ";
+    getline(cin, name);
+
+    cout << "\nHi " << name << "! Let's make your day a little more fun." << endl;
+
+    int choice;
+
+    // Main menu loop
+    do {
+        cout << "\n========= MAIN MENU =========" << endl;
+        cout << "1. Play Guess the Number" << endl;
+        cout << "2. Get a Random Compliment" << endl;
+        cout << "3. Chat Prompt (Mini Conversation)" << endl;
+        cout << "4. Exit Game" << endl;
+        cout << "Choose an option: ";
+        cin >> choice;
+
+        cin.ignore(); // Clear leftover newline
+
+        if (choice == 1) {
+            // Guess the Number Game
+            int secret = rand() % 20 + 1;
+            int guess;
+
+            cout << "\nI'm thinking of a number between 1 and 20..." << endl;
+
+            do {
+                cout << "Enter your guess: ";
+                cin >> guess;
+
+                if (guess > secret)
+                    cout << "Too high! Try again." << endl;
+                else if (guess < secret)
+                    cout << "Too low! Try again." << endl;
+                else
+                    cout << "You got it, " << name << "! Great job!" << endl;
+
+            } while (guess != secret);
+        }
+
+        else if (choice == 2) {
+            // Compliment Generator
+            string compliments[5] = {
+                "You're doing amazing, keep going!",
+                "Your presence makes things brighter.",
+                "You have a great sense of humor.",
+                "You're smarter than you think.",
+                "You're capable of awesome things."
+            };
+
+            int index = rand() % 5;
+            cout << "\nHere's your compliment: " << compliments[index] << endl;
+        }
+
+        else if (choice == 3) {
+            // Mini Conversation
+            string feeling;
+            cout << "\nHow are you feeling today? ";
+            getline(cin, feeling);
+
+            cout << "Thanks for sharing, " << name << ". ";
+            cout << "I may be a simple console program, but I'm here with you." << endl;
+        }
+
+        else if (choice == 4) {
+            cout << "\nThanks for playing Companion Quest, " << name << "! Come back anytime." << endl;
+        }
+
+        else {
+            cout << "\nInvalid choice. Try again." << endl;
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}
