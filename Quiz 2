@@ -1,1 +1,72 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+
+    cout << "****** Welcome to the Coffee Shop Order Calculator ******" << endl;
+
+    // User inputs
+    int small, medium, large;
+    double taxRate;
+
+    cout << "Enter number of small coffees: ";
+    cin >> small;
+
+    cout << "Enter number of medium coffees: ";
+    cin >> medium;
+
+    cout << "Enter number of large coffees: ";
+    cin >> large;
+
+    cout << "Enter tax rate (%): ";
+    cin >> taxRate;
+
+    // Updated Prices
+    const double SMALL_PRICE = 2.50;
+    const double MEDIUM_PRICE = 3.25;
+    const double LARGE_PRICE = 4.00;
+
+    // Calculations
+    double smallTotal = small * SMALL_PRICE;
+    double mediumTotal = medium * MEDIUM_PRICE;
+    double largeTotal = large * LARGE_PRICE;
+
+    double subtotal = smallTotal + mediumTotal + largeTotal;
+    double taxAmount = (taxRate / 100.0) * subtotal;
+    double total = subtotal + taxAmount;
+
+    // Formatting
+    cout << fixed << setprecision(2) << showpoint;
+
+    cout << "================= COFFEE ORDER RECEIPT =================" << endl;
+
+    cout << "Small Coffees (" << small << " x $" << SMALL_PRICE << "): "
+         << "$" << smallTotal << endl;
+
+    cout << "Medium Coffees (" << medium << " x $" << MEDIUM_PRICE << "): "
+         << "$" << mediumTotal << endl;
+
+    cout << "Large Coffees (" << large << " x $" << LARGE_PRICE << "): "
+         << "$" << largeTotal << endl;
+
+    cout << "--------------------------------------------------------" << endl;
+
+    cout << setw(30) << setfill('.') << left << "Subtotal:"
+         << "$" << subtotal << endl;
+
+    cout << setw(30) << setfill('.') << left
+         << ("Tax (" + to_string(taxRate) + "%):")
+         << "$" << taxAmount << endl;
+
+    cout << "--------------------------------------------------------" << endl;
+
+    cout << setw(30) << setfill('.') << left << "Total Amount Due:"
+         << "$" << total << endl;
+
+    cout << "========================================================" << endl;
+    cout << "Thank you for supporting local coffee!" << endl;
+
+    return 0;
+}
 
